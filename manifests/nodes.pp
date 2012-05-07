@@ -1,9 +1,7 @@
-node 'basenode' { 
-  include baseclass
+node 'lsrv2.aac-services.lan'  {
+include admin::sudo
 }
- 
-node 'lsrv2.aac-services.lan' inherits basenode { 
-}
-node 'lsrv0.aac-services.lan' inherits basenode {
+node 'lsrv1.aac-services.lan'  {
+include admin::sudo
 }
 
