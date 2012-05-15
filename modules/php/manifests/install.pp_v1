@@ -1,0 +1,26 @@
+class apache::install {
+
+$version = "2.2.22"
+#Ensure that the Directory exists
+file { "/root/download/src": ensure => directory }
+
+file { "/root/download/src/httpd-$version.tar.gz":
+                source => "puppet:///modules/apache/httpd-$version.tar.gz",
+                  }
+
+#Untar files
+
+exec {
+
+	"tar":
+        command => "tar  xvzf /root/download/src/httpd-$version.tar.gz",
+	cwd  => "/root/download/src",
+	creates => "/root/download/src/httpd-$version",
+	path    => "/usr/local/bin/:/bin/",	
+	}
+
+
+
+
+
+}
